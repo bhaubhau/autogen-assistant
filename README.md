@@ -14,3 +14,7 @@ https://www.youtube.com/watch?v=YqgpGUGBHrU
 https://www.youtube.com/watch?v=rPCdtbA3aLw  
 
 https://microsoft.github.io/autogen/blog/2023/07/14/Local-LLMs/  
+
+python -m fastchat.serve.controller  
+python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --device cpu  
+python -m fastchat.serve.openai_api_server --host localhost --port 8000  
