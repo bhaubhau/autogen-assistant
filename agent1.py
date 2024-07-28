@@ -12,11 +12,11 @@ from autogen import ConversableAgent
 
 agent = ConversableAgent(
         "chatbot",
-        llm_config={"config_list": [{"model": "TinyLlama-1.1B-Chat-v1.0", "api_key": "NULL", "base_url": "http://localhost:8000/v1"}]},
+        llm_config={"config_list": [{"model": "tinyllama", "api_key": "NULL", "base_url": "http://localhost:8000/v1"}]},
         code_execution_config=False,  # Turn off code execution, by default it is off.
         function_map=None,  # No registered functions, by default it is None.
         human_input_mode="NEVER",  # Never ask for human input.
     )
 
-reply = agent.generate_reply(messages=[{"content": "Tell me a joke.", "role": "user"}])
+reply = agent.generate_reply(messages=[{"content": "what is the capital of india?", "role": "user"}])
 print(reply)
