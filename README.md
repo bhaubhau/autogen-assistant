@@ -1,7 +1,7 @@
 sudo apt install python3.12-venv  
 python3 -m venv ./myenv  
 source ./myenv/bin/activate  
-pip install pyautogen litellm autogenstudio 'litellm[proxy]' 
+pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'
 
 litellm --model ollama/tinyllama  
 
@@ -18,3 +18,8 @@ https://microsoft.github.io/autogen/blog/2023/07/14/Local-LLMs/
 python -m fastchat.serve.controller  
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device cpu  
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
+
+
+python3 -m fastchat.serve.gradio_web_server --port 8000
+
+gnome-session-quit
