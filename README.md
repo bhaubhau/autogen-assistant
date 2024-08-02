@@ -32,7 +32,7 @@ https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_l
 
 ssh bhavik@192.168.0.143  
 
-/etc/default/grub  
+https://ubuntu.com/server/docs/set-up-an-ftp-server  
 
 huggingface-cli login  
 huggingface-cli whoami  
