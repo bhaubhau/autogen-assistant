@@ -1,7 +1,8 @@
 sudo apt install python3.12-venv  
 python3 -m venv ./myenv  
 source ./myenv/bin/activate  
-pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'
+pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'  
+pip install -U "huggingface_hub[cli]"
 
 litellm --model ollama/tinyllama  
 
@@ -20,15 +21,19 @@ python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
 
 
-python3 -m fastchat.serve.gradio_web_server --port 8000
+python3 -m fastchat.serve.gradio_web_server --port 8000  
 
-gnome-session-quit
+gnome-session-quit  
 
-https://adithyask.medium.com/from-7b-to-8b-parameters-understanding-weight-matrix-changes-in-llama-transformer-models-31ea7ed5fd88
+https://adithyask.medium.com/from-7b-to-8b-parameters-understanding-weight-matrix-changes-in-llama-transformer-models-31ea7ed5fd88  
 
-https://github.com/meta-llama/llama3
-https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html
+https://github.com/meta-llama/llama3  
+https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html  
 
-ssh bhavik@192.168.0.143
+ssh bhavik@192.168.0.143  
 
-/etc/default/grub
+/etc/default/grub  
+
+huggingface-cli login  
+huggingface-cli whoami  
+huggingface-cli download meta-llama/Meta-Llama-3.1-8B --local-dir ~/Documents/git/llama3  
