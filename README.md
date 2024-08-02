@@ -23,3 +23,8 @@ python -m fastchat.serve.openai_api_server --host localhost --port 8000
 python3 -m fastchat.serve.gradio_web_server --port 8000
 
 gnome-session-quit
+
+https://adithyask.medium.com/from-7b-to-8b-parameters-understanding-weight-matrix-changes-in-llama-transformer-models-31ea7ed5fd88
+
+https://github.com/meta-llama/llama3
+https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html
