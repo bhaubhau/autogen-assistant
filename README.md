@@ -30,3 +30,5 @@ https://github.com/meta-llama/llama3
 https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html
 
 ssh bhavik@192.168.0.143
+
+/etc/default/grub
