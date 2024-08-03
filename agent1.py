@@ -18,5 +18,5 @@ agent = ConversableAgent(
         human_input_mode="NEVER",  # Never ask for human input.
     )
 
-reply = agent.generate_reply(messages=[{"content": "what is the capital of india?", "role": "user"}])
+reply = agent.generate_reply(messages=[{"content": "can you generate code to book a flight from mumbai to banglore via makemytrip.com?", "role": "user"}])
 print(reply)

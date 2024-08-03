@@ -3,6 +3,8 @@ python3 -m venv ./myenv
 source ./myenv/bin/activate  
 pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'  
 pip install -U "huggingface_hub[cli]"
+pip install --upgrade pip
+pip install playwright
 
 litellm --model ollama/tinyllama  
 
