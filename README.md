@@ -37,3 +37,5 @@ https://ubuntu.com/server/docs/set-up-an-ftp-server
 huggingface-cli login  
 huggingface-cli whoami  
 huggingface-cli download meta-llama/Meta-Llama-3.1-8B --local-dir ~/Documents/git/llama3  
+
+scp -r bhavik@192.168.0.143:~/Documents/git/autogen-assistant/downloaded_models downloaded_models
