@@ -18,6 +18,7 @@ https://microsoft.github.io/autogen/blog/2023/07/14/Local-LLMs/
 
 python -m fastchat.serve.controller  
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device cpu  
+python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps  #for apple metal
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
 
 
@@ -38,4 +39,4 @@ huggingface-cli login
 huggingface-cli whoami  
 huggingface-cli download meta-llama/Meta-Llama-3.1-8B --local-dir ~/Documents/git/llama3  
 
-scp -r bhavik@192.168.0.143:~/Documents/git/autogen-assistant/downloaded_models downloaded_models
+scp -r bhavik@192.168.0.143:~/Documents/git/autogen-assistant/downloaded_models downloaded_models  
