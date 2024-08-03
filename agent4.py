@@ -38,6 +38,8 @@ user_proxy = UserProxyAgent(
     system_message="A human admin.",
     human_input_mode="NEVER", # trust the bots completely, what could go wrong?
     is_termination_msg=lambda x: "CONVERSATION_TERMINATE" in x.get("content", "").rstrip(),
+    # code_execution_config=False
+    code_execution_config = {"use_docker": False}
 )
 
 groupchat = GroupChat(agents=[user_proxy, debate_moderator, pros_advocate, cons_advocate], messages=[], max_round=50)
