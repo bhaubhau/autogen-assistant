@@ -20,7 +20,7 @@ https://microsoft.github.io/autogen/blog/2023/07/14/Local-LLMs/
 
 python -m fastchat.serve.controller  
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device cpu  
-python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps  #for apple metal
+python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps --gpus 0,1,2,3 --num-gpus 4  #for apple metal
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
 
 
