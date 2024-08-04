@@ -25,7 +25,7 @@ python -m fastchat.serve.model_worker --model-path ./downloaded_models/Meta-Llam
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Meta-Llama-3-8B-Instruct --model-names llama3 --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-7b-it --model-names gemma --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4  
-python -m fastchat.serve.multi_model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps  
+python -m fastchat.serve.multi_model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4  
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
 
 
