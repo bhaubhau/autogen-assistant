@@ -50,3 +50,5 @@ scp -r bhavik@192.168.0.143:~/Documents/git/autogen-assistant/downloaded_models 
 
 https://medium.com/@coldstart_coder/conversing-code-unleashing-collaborative-ai-with-the-autogen-framework-a5b04d94b6fd  
 https://medium.com/@coldstart_coder/autogen-essentials-function-integration-for-smarter-agents-7c3b4a0fdc12  
+
+https://huggingface.co/spaces/stabilityai/stable-diffusion-3-medium  
