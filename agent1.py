@@ -13,6 +13,7 @@ from autogen import ConversableAgent
 agent = ConversableAgent(
         "chatbot",
         # llm_config={"config_list": [{"model": "tinyllama", "api_key": "NULL", "base_url": "http://localhost:8000/v1"}]},
+        # llm_config={"config_list": [{"model": "gemma", "api_key": "NULL", "base_url": "http://localhost:8000/v1"}]},
         llm_config={"config_list": [{"model": "tinyllama", "api_key": "NULL", "base_url": "https://zryb2ei152h-496ff2e9c6d22116-8000-colab.googleusercontent.com/v1"}]},
         code_execution_config=False,  # Turn off code execution, by default it is off.
         function_map=None,  # No registered functions, by default it is None.

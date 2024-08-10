@@ -29,7 +29,8 @@ python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/Meta-Llama-3.1-8B-Instruct --model-names llama3.1 --device mps  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Meta-Llama-3-8B-Instruct --model-names llama3 --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-7b-it --model-names gemma --device mps --num-gpus 4  
-python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4  
+python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4
+python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2b-it --model-names gemma --device cpu
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/gemma-2b-it --model-names gemma --device cpu  
 python -m fastchat.serve.multi_model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2b-it --model-names gemma --device mps --num-gpus 4  
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
@@ -45,6 +46,7 @@ https://github.com/meta-llama/llama3
 https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html  
 
 ssh bhavik@192.168.0.143  
+cd Documents/git/autogen-assistant
 
 https://ubuntu.com/server/docs/set-up-an-ftp-server  
 
