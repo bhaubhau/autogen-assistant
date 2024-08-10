@@ -7,6 +7,7 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
+pip install -U langchain langchain-openai langgraph langsmith
 
 litellm --model ollama/tinyllama  
 
@@ -27,6 +28,7 @@ python -m fastchat.serve.model_worker --model-path ~/git/autogen-assistant/downl
 python -m fastchat.serve.model_worker --model-path "C:\Users\Bhavik Kawli\git\autogen-assistant\downloaded_models\TinyLlama-1.1B-Chat-v1.0" --model-names tinyllama --device cpu  
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps --gpus 0,1,2,3 --num-gpus 4  #for apple metal  
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/Meta-Llama-3.1-8B-Instruct --model-names llama3.1 --device mps  
+python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Meta-Llama-3-8B-Instruct --model-names llama3 --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-7b-it --model-names gemma --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4
