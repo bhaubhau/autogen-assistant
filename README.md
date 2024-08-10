@@ -58,3 +58,5 @@ https://medium.com/@coldstart_coder/conversing-code-unleashing-collaborative-ai-
 https://medium.com/@coldstart_coder/autogen-essentials-function-integration-for-smarter-agents-7c3b4a0fdc12  
 
 https://huggingface.co/spaces/stabilityai/stable-diffusion-3-medium  
+
+https://dassum.medium.com/fine-tune-large-language-model-llm-on-a-custom-dataset-with-qlora-fb60abdeba07  
