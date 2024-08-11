@@ -38,7 +38,7 @@ python -m fastchat.serve.multi_model_worker --model-path ~/Documents/git/autogen
 python -m fastchat.serve.openai_api_server --host localhost --port 8000  
 
 
-python -m fastchat.serve.gradio_web_server --port 8000  
+python -m fastchat.serve.gradio_web_server --port 8001  
 
 gnome-session-quit  
 
