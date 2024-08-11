@@ -64,3 +64,5 @@ https://medium.com/@coldstart_coder/autogen-essentials-function-integration-for-
 https://huggingface.co/spaces/stabilityai/stable-diffusion-3-medium  
 
 https://dassum.medium.com/fine-tune-large-language-model-llm-on-a-custom-dataset-with-qlora-fb60abdeba07  
+
+https://medium.com/@amit25173/langchain-fine-tuning-bc34c9c8ecf7  
