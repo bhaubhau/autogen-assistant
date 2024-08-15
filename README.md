@@ -1,4 +1,5 @@
 cd git/autogen-assistant  
+cd git/FastChat  
 sudo apt install python3.12-venv  
 python3 -m venv ./myenv  
 python3.12 -m venv ./myenv  
