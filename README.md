@@ -1,3 +1,4 @@
+cd git/autogen-assistant  
 sudo apt install python3.12-venv  
 python3 -m venv ./myenv  
 python3.12 -m venv ./myenv  
@@ -66,3 +67,6 @@ https://huggingface.co/spaces/stabilityai/stable-diffusion-3-medium
 https://dassum.medium.com/fine-tune-large-language-model-llm-on-a-custom-dataset-with-qlora-fb60abdeba07  
 
 https://medium.com/@amit25173/langchain-fine-tuning-bc34c9c8ecf7  
+
+https://python.langchain.com/v0.1/docs/langsmith/walkthrough/  
+https://docs.smith.langchain.com/how_to_guides/tracing/annotate_code  
