@@ -2,8 +2,8 @@ from pprint import pprint
 from typing import Annotated, Literal, TypedDict
 
 from langchain_core.messages import HumanMessage
-from langchain_openai import ChatOpenAI
-# from langchain_anthropic import ChatAnthropic
+# from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, MessagesState
@@ -25,8 +25,8 @@ tools = [search]
 
 tool_node = ToolNode(tools)
 
-model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
-# model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
+# model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
+model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
 
 # Define the function that determines whether to continue or not
 def should_continue(state: MessagesState) -> Literal["tools", END]:
