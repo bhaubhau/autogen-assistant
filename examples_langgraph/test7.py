@@ -1,7 +1,7 @@
 from pprint import pprint
 from typing import Annotated, Literal, TypedDict
 
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
 from langchain_core.tools import tool
@@ -12,14 +12,14 @@ from langgraph.prebuilt import ToolNode
 
 # Define the tools for the agent to use
 @tool
-def search():
+def search(query: str):
     """Call to surf the web."""
     # This is a placeholder, but don't tell the LLM that...
     print("search is called")
-    # pprint("query is: " + content.lower())
-    # if "sf" in content.lower() or "san francisco" in content.lower():
-    #     return "It's 60 degrees and foggy."
-    # return "It's 90 degrees and sunny."
+    pprint("query is: " + query.lower())
+    if "sf" in query.lower() or "san francisco" in query.lower():
+        return "It's 60 degrees and foggy."
+    return "It's 90 degrees and sunny."
 
 
 tools = [search]
@@ -34,8 +34,8 @@ def should_continue(state: MessagesState) -> Literal["tools", END]:
     messages = state['messages']
     last_message = messages[-1]
     # If the LLM makes a tool call, then we route to the "tools" node
-    # if last_message.tool_calls:
-    if "real-time weather data" in last_message.content:
+    if last_message.tool_calls:
+    # if "real-time weather data" in last_message.content:
         return "tools"
     # Otherwise, we stop (reply to the user)
     return END
@@ -71,7 +71,7 @@ workflow.add_conditional_edges(
     "agent",
     # Next, we pass in the function that will determine which node is called next.
     should_continue,
-    {"tools": "tools", "__end__": "__end__"}
+    # {"tools": "tools", "__end__": "__end__"}
 )
 
 # We now add a normal edge from `tools` to `agent`.
@@ -89,7 +89,26 @@ app = workflow.compile(checkpointer=checkpointer)
 
 # Use the Runnable
 final_state = app.invoke(
-    {"messages": [HumanMessage(content="what is the weather in sf")]},
+    {"messages": [
+        SystemMessage(content="""You are a helpful assistant with access to the following functions. Use them if required -
+        {
+            "name": "search",
+            "description": "Search for weather information",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "city for which weather needs to be retrieved"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+        """),
+        HumanMessage(content="what is the weather in sf")]},
     config={"configurable": {"thread_id": 42}}
 )
 print(final_state["messages"][-1].content)
