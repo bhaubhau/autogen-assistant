@@ -1,5 +1,5 @@
-cd git/autogen-assistant  
 cd git/FastChat  
+cd git/autogen-assistant  
 sudo apt install python3.12-venv  
 python3 -m venv ./myenv  
 python3.12 -m venv ./myenv  
@@ -9,7 +9,7 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
-pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python
+pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic
 
 litellm --model ollama/tinyllama  
 
@@ -71,3 +71,9 @@ https://medium.com/@amit25173/langchain-fine-tuning-bc34c9c8ecf7
 
 https://python.langchain.com/v0.1/docs/langsmith/walkthrough/  
 https://docs.smith.langchain.com/how_to_guides/tracing/annotate_code  
+
+https://medium.com/@veer15/the-hitchhikers-guide-to-instruction-tuning-large-language-models-d6441dbf1413  
+
+https://towardsdatascience.com/from-basics-to-advanced-exploring-langgraph-e8c1cf4db787  
+
+https://teetracker.medium.com/langchain-multi-user-conversation-1ea1c8671e33  
