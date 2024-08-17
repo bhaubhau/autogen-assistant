@@ -77,3 +77,5 @@ https://medium.com/@veer15/the-hitchhikers-guide-to-instruction-tuning-large-lan
 https://towardsdatascience.com/from-basics-to-advanced-exploring-langgraph-e8c1cf4db787  
 
 https://teetracker.medium.com/langchain-multi-user-conversation-1ea1c8671e33  
+
+https://ollama.com/unclecode/tinycallama  
