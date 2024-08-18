@@ -29,14 +29,18 @@ tools = [search]
 tool_node = ToolNode(tools)
 
 from huggingface_hub import login
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 token = os.environ['HUGGINGFACEHUB_API_TOKEN']
 login(token)
 
 # model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
+# llm = HuggingFaceEndpoint(repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0", temperature=0)
+# llm = HuggingFaceEndpoint(repo_id="google/gemma-2b-it", temperature=0)
 # model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
 llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
+# llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-7B-Instruct-v0.3", temperature=0)
+# llm = HuggingFaceEndpoint(repo_id="microsoft/Phi-3-mini-4k-instruct", temperature=0)
 model = ChatHuggingFace(llm=llm).bind_tools(tools)
 
 # Define the function that determines whether to continue or not
@@ -97,34 +101,23 @@ checkpointer = MemorySaver()
 # Note that we're (optionally) passing the memory when compiling the graph
 app = workflow.compile(checkpointer=checkpointer)
 
+import json
+with open('test7_funcs.json') as f:
+    tools_description = json.load(f)
+
 # Use the Runnable
 final_state = app.invoke(
     {"messages": [
-        SystemMessage(content="""You are a helpful assistant with access to the following functions. Use them if required -
-        {
-            "name": "search",
-            "description": "Search for weather information",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "city for which weather needs to be retrieved"
-                    }
-                },
-                "required": [
-                    "query"
-                ]
-            }
-        }
-        """),
-        HumanMessage(content="what is the weather in sf")]},
+        SystemMessage(content="You are a helpful assistant with access to the following functions. Use them if required -\n" + str(tools_description)),
+        # HumanMessage(content="what is the weather in sf"),
+        HumanMessage(content="can you launch the link huggingface.co"),
+    ]},
     config={"configurable": {"thread_id": 42}}
 )
 print(final_state["messages"][-1].content)
 
-# final_state = app.invoke(
-#     {"messages": [HumanMessage(content="what about ny")]},
-#     config={"configurable": {"thread_id": 42}}
-# )
-# print(final_state["messages"][-1].content)
+final_state = app.invoke(
+    {"messages": [HumanMessage(content="what about ny")]},
+    config={"configurable": {"thread_id": 42}}
+)
+print(final_state["messages"][-1].content)
