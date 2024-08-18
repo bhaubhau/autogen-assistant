@@ -1,9 +1,11 @@
+import os
 from pprint import pprint
 from typing import Annotated, Literal, TypedDict
 
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
+from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, MessagesState
@@ -26,8 +28,16 @@ tools = [search]
 
 tool_node = ToolNode(tools)
 
-model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
+from huggingface_hub import login
+from dotenv import load_dotenv
+load_dotenv()
+token = os.environ['HUGGINGFACEHUB_API_TOKEN']
+login(token)
+
+# model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
 # model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
+llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
+model = ChatHuggingFace(llm=llm).bind_tools(tools)
 
 # Define the function that determines whether to continue or not
 def should_continue(state: MessagesState) -> Literal["tools", END]:
@@ -113,8 +123,8 @@ final_state = app.invoke(
 )
 print(final_state["messages"][-1].content)
 
-final_state = app.invoke(
-    {"messages": [HumanMessage(content="what about ny")]},
-    config={"configurable": {"thread_id": 42}}
-)
-print(final_state["messages"][-1].content)
+# final_state = app.invoke(
+#     {"messages": [HumanMessage(content="what about ny")]},
+#     config={"configurable": {"thread_id": 42}}
+# )
+# print(final_state["messages"][-1].content)
