@@ -1,0 +1,18 @@
+[
+  {
+    "name": "browse",
+    "description": "Launches the browser to navigate to given url",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "url link to be launched"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  }
+]

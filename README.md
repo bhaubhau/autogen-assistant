@@ -81,3 +81,5 @@ https://teetracker.medium.com/langchain-multi-user-conversation-1ea1c8671e33
 https://ollama.com/unclecode/tinycallama  
 
 https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/discussions/15  
+
+https://python.langchain.com/v0.2/docs/concepts/#embedding-models  
