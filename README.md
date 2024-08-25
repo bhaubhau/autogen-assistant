@@ -9,7 +9,7 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
-pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic langchain-huggingface
+pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai
 
 litellm --model ollama/tinyllama  
 
@@ -31,6 +31,7 @@ python -m fastchat.serve.model_worker --model-path "C:\Users\Bhavik Kawli\git\au
 python -m fastchat.serve.model_worker --model-path ./downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps --gpus 0,1,2,3 --num-gpus 4  #for apple metal  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Meta-Llama-3.1-8B-Instruct --model-names llama3.1 --device mps  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/TinyLlama-1.1B-Chat-v1.0 --model-names tinyllama --device mps  
+python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Mistral-7B-Instruct-v0.3 --model-names mistral7b --device mps  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/Meta-Llama-3-8B-Instruct --model-names llama3 --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-7b-it --model-names gemma --device mps --num-gpus 4  
 python -m fastchat.serve.model_worker --model-path ~/Documents/git/autogen-assistant/downloaded_models/gemma-2-2b-it --model-names gemma2 --device mps --num-gpus 4
@@ -83,3 +84,11 @@ https://ollama.com/unclecode/tinycallama
 https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/discussions/15  
 
 https://python.langchain.com/v0.2/docs/concepts/#embedding-models  
+
+https://python.langchain.com/v0.1/docs/modules/model_io/chat/function_calling/  
+
+https://python.langchain.com/v0.1/docs/use_cases/question_answering/local_retrieval_qa/  
+
+https://python.langchain.com/v0.1/docs/guides/development/local_llms/  
+
+https://github.com/abetlen/llama-cpp-python/blob/main/docs/install/macos.md  

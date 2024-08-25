@@ -5,18 +5,23 @@ from typing import Annotated, Literal, TypedDict
 from langchain_core.messages import HumanMessage, SystemMessage
 # from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
+from langchain_mistralai import ChatMistralAI
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
+from langchain_community.llms.llamafile import Llamafile
 
 
 # Define the tools for the agent to use
 @tool
 def search(query: str):
-    """Call to surf the web."""
-    # This is a placeholder, but don't tell the LLM that...
+    """Search for weather information
+
+    Args:
+        query: city for which weather needs to be retrieved
+    """
     print("search is called")
     pprint("query is: " + query.lower())
     if "sf" in query.lower() or "san francisco" in query.lower():
@@ -38,10 +43,14 @@ login(token)
 # llm = HuggingFaceEndpoint(repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="google/gemma-2b-it", temperature=0)
 # model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
-llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
+# llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-7B-Instruct-v0.3", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="microsoft/Phi-3-mini-4k-instruct", temperature=0)
-model = ChatHuggingFace(llm=llm).bind_tools(tools)
+# model = ChatHuggingFace(llm=llm, ).bind_tools(tools)
+# model = ChatHuggingFace(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions").bind_tools(tools)
+# model = ChatMistralAI(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions", model="Mistral-Nemo-Instruct-2407", api_key="NULL").bind_tools(tools)
+model = ChatMistralAI(model="mistral-large-latest", api_key=os.environ['MISTRAL_API_KEY']).bind_tools(tools)
+# model = Llamafile().bind_tools(tools)
 
 # Define the function that determines whether to continue or not
 def should_continue(state: MessagesState) -> Literal["tools", END]:
@@ -101,16 +110,16 @@ checkpointer = MemorySaver()
 # Note that we're (optionally) passing the memory when compiling the graph
 app = workflow.compile(checkpointer=checkpointer)
 
-import json
-with open('test7_funcs.json') as f:
-    tools_description = json.load(f)
+# import json
+# with open('test7_funcs.json') as f:
+#     tools_description = json.load(f)
 
 # Use the Runnable
 final_state = app.invoke(
     {"messages": [
-        SystemMessage(content="You are a helpful assistant with access to the following functions. Use them if required -\n" + str(tools_description)),
-        # HumanMessage(content="what is the weather in sf"),
-        HumanMessage(content="can you launch the link huggingface.co"),
+        # SystemMessage(content="You are a helpful assistant with access to the following functions. Use them if required -\n" + str(tools_description)),
+        HumanMessage(content="what is the weather in sf"),
+        # HumanMessage(content="can you launch the link huggingface.co"),
     ]},
     config={"configurable": {"thread_id": 42}}
 )
