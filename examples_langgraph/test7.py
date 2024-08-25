@@ -5,8 +5,9 @@ from typing import Annotated, Literal, TypedDict
 from langchain_core.messages import HumanMessage, SystemMessage
 # from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
-from langchain_mistralai import ChatMistralAI
-from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
+# from langchain_mistralai import ChatMistralAI
+# from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
+from langchain_community.llms import Ollama
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, MessagesState
@@ -49,8 +50,9 @@ login(token)
 # model = ChatHuggingFace(llm=llm, ).bind_tools(tools)
 # model = ChatHuggingFace(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions").bind_tools(tools)
 # model = ChatMistralAI(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions", model="Mistral-Nemo-Instruct-2407", api_key="NULL").bind_tools(tools)
-model = ChatMistralAI(model="mistral-large-latest", api_key=os.environ['MISTRAL_API_KEY']).bind_tools(tools)
+# model = ChatMistralAI(model="open-mistral-nemo-2407", api_key=os.environ['MISTRAL_API_KEY']).bind_tools(tools)
 # model = Llamafile().bind_tools(tools)
+model = Ollama(model="mistral:7b-instruct-v0.3-q4_K_M").bind_tools(tools)
 
 # Define the function that determines whether to continue or not
 def should_continue(state: MessagesState) -> Literal["tools", END]:

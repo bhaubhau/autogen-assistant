@@ -92,3 +92,9 @@ https://python.langchain.com/v0.1/docs/use_cases/question_answering/local_retrie
 https://python.langchain.com/v0.1/docs/guides/development/local_llms/  
 
 https://github.com/abetlen/llama-cpp-python/blob/main/docs/install/macos.md  
+
+https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/discussions/7
+
+ollama pull mistral:7b-instruct-v0.3-q4_K_M  
+ollama pull mistral-nemo  
+ollama pull 
