@@ -9,7 +9,7 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
-pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai
+pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama
 
 litellm --model ollama/tinyllama  
 
@@ -93,8 +93,22 @@ https://python.langchain.com/v0.1/docs/guides/development/local_llms/
 
 https://github.com/abetlen/llama-cpp-python/blob/main/docs/install/macos.md  
 
-https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/discussions/7
+https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/discussions/7  
 
-ollama pull mistral:7b-instruct-v0.3-q4_K_M  
+https://python.langchain.com/v0.2/docs/integrations/chat/ollama/  
+https://medium.com/@developer.yasir.pk/tool-calling-for-llms-a-detailed-tutorial-a2b4d78633e2  
+
+ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
-ollama pull 
+ollama run mistral:7b-instruct-v0.3-fp16  
+ollama pull mistral-nemo:12b-instruct-2407-q4_K_M  
+ollama pull phi3:3.8b-mini-128k-instruct-fp16  
+ollama pull llama3.1  
+ollama pull tinyllama:1.1b-chat-v0.6-fp16  
+ollama pull gemma2:2b
+litellm --model mistral:7b-instruct-v0.3-q4_K_M --alias open-mistral-7b  
+litellm --model ollama/mistral-nemo  
+
+export HUGGINGFACE_API_KEY=  
+litellm --model huggingface/mistralai/Mistral-7B-Instruct-v0.3  
+litellm --model huggingface/mistralai/Mistral-Nemo-Instruct-2407  

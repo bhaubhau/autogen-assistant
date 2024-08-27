@@ -7,7 +7,8 @@ from langchain_core.messages import HumanMessage, SystemMessage
 # from langchain_anthropic import ChatAnthropic
 # from langchain_mistralai import ChatMistralAI
 # from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
-from langchain_community.llms import Ollama
+# from langchain_community.llms import Ollama
+from langchain_ollama import ChatOllama
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, MessagesState
@@ -34,11 +35,11 @@ tools = [search]
 
 tool_node = ToolNode(tools)
 
-from huggingface_hub import login
-# from dotenv import load_dotenv
-# load_dotenv()
-token = os.environ['HUGGINGFACEHUB_API_TOKEN']
-login(token)
+# from huggingface_hub import login
+# # from dotenv import load_dotenv
+# # load_dotenv()
+# token = os.environ['HUGGINGFACEHUB_API_TOKEN']
+# login(token)
 
 # model = ChatOpenAI(model="tinyllama", api_key="NULL", base_url="http://localhost:8000/v1", temperature=0).bind_tools(tools)
 # llm = HuggingFaceEndpoint(repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0", temperature=0)
@@ -52,7 +53,19 @@ login(token)
 # model = ChatMistralAI(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions", model="Mistral-Nemo-Instruct-2407", api_key="NULL").bind_tools(tools)
 # model = ChatMistralAI(model="open-mistral-nemo-2407", api_key=os.environ['MISTRAL_API_KEY']).bind_tools(tools)
 # model = Llamafile().bind_tools(tools)
-model = Ollama(model="mistral:7b-instruct-v0.3-q4_K_M").bind_tools(tools)
+# model = Ollama(model="mistral:7b-instruct-v0.3-q4_K_M").bind_tools(tools)
+# model = ChatMistralAI(endpoint="http://localhost:4000", model="open-mistral-nemo-2407", api_key="NULL").bind_tools(tools)
+# model = ChatMistralAI(endpoint="http://localhost:4000/v1", model="mistral/open-mistral-7b", api_key="NULL").bind_tools(tools)
+# model = ChatMistralAI(endpoint="http://localhost:4000").bind_tools(tools)
+# model = ChatOpenAI(model="NULL", api_key="NULL", base_url="http://localhost:4000").bind_tools(tools)
+# model = ChatOllama(model="llama3.1",temperature=0).bind_tools(tools)
+model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0).bind_tools(tools)
+# model = ChatOllama(model="mistral-nemo",temperature=0).bind_tools(tools)
+# model = ChatOllama(model="mistral-nemo:12b-instruct-2407-q4_K_M",temperature=0).bind_tools(tools)
+# model = ChatOllama(model="phi3:3.8b-mini-128k-instruct-fp16",temperature=0).bind_tools(tools)
+# model = ChatOllama(model="tinyllama:1.1b-chat-v0.6-fp16",temperature=0).bind_tools(tools)
+# model = ChatOllama(model="gemma2:2b",temperature=0).bind_tools(tools)
+
 
 # Define the function that determines whether to continue or not
 def should_continue(state: MessagesState) -> Literal["tools", END]:
