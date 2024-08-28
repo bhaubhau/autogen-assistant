@@ -77,6 +77,8 @@ https://medium.com/@veer15/the-hitchhikers-guide-to-instruction-tuning-large-lan
 
 https://towardsdatascience.com/from-basics-to-advanced-exploring-langgraph-e8c1cf4db787  
 
+https://medium.com/google-cloud/cost-efficient-multi-agent-collaboration-with-langgraph-gemma-for-code-generation-88d6cf87fc99
+
 https://teetracker.medium.com/langchain-multi-user-conversation-1ea1c8671e33  
 
 https://ollama.com/unclecode/tinycallama  
@@ -97,6 +99,8 @@ https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/discussions/7
 
 https://python.langchain.com/v0.2/docs/integrations/chat/ollama/  
 https://medium.com/@developer.yasir.pk/tool-calling-for-llms-a-detailed-tutorial-a2b4d78633e2  
+
+https://medium.com/@tubelwj/introduction-to-ai-model-quantization-formats-dc643bfc335c
 
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
