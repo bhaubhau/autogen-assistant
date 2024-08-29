@@ -77,7 +77,9 @@ https://medium.com/@veer15/the-hitchhikers-guide-to-instruction-tuning-large-lan
 
 https://towardsdatascience.com/from-basics-to-advanced-exploring-langgraph-e8c1cf4db787  
 
-https://medium.com/google-cloud/cost-efficient-multi-agent-collaboration-with-langgraph-gemma-for-code-generation-88d6cf87fc99
+https://medium.com/google-cloud/cost-efficient-multi-agent-collaboration-with-langgraph-gemma-for-code-generation-88d6cf87fc99  
+
+https://langchain-ai.github.io/langgraph/tutorials/web-navigation/web_voyager/#run-agent  
 
 https://teetracker.medium.com/langchain-multi-user-conversation-1ea1c8671e33  
 
