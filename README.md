@@ -9,7 +9,7 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
-pip install -U langchain langchain-openai langgraph langsmith langchain_community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama
+pip install -U langchain langchain-openai langgraph langsmith langchain-community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama
 
 litellm --model ollama/tinyllama  
 
