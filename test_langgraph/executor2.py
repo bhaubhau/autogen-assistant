@@ -38,9 +38,9 @@ def should_continue(state: MessagesState) -> Literal["tools", END]:
 
 def chatbot(state: State):
     model.invoke([
-        SystemMessage(content="""Below applications can be used to perform the actions        
-        www.makemytrip.com - to book flights,hotels,plan trips
-        www.flipkart.com - to purchase electronic items,furniture etc""")
+        SystemMessage(content="""You can use below applications       
+www.makemytrip.com: to book flights,hotels,plan trips
+www.flipkart.com: to purchase electronic items,furniture etc""")
     ])
     return {"messages": [model.invoke(state["messages"])]}
 
