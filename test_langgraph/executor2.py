@@ -13,6 +13,7 @@ def launch_application(application_name: str):
     Args:
         application_name: name of the application to be launched
     """
+    print("launch tool called" + application_name)
 
 tools = [launch_application]
 
@@ -36,6 +37,11 @@ def should_continue(state: MessagesState) -> Literal["tools", END]:
     return END
 
 def chatbot(state: State):
+    model.invoke([
+        SystemMessage(content="""You can use below applications       
+www.makemytrip.com: to book flights,hotels,plan trips
+www.flipkart.com: to purchase electronic items,furniture etc""")
+    ])
     return {"messages": [model.invoke(state["messages"])]}
 
 graph_builder = StateGraph(State)
