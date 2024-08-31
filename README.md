@@ -55,6 +55,8 @@ cd Documents/git/autogen-assistant
 
 https://ubuntu.com/server/docs/set-up-an-ftp-server  
 
+https://github.com/ollama/ollama/issues/703  
+
 huggingface-cli login  
 huggingface-cli whoami  
 huggingface-cli download meta-llama/Meta-Llama-3.1-8B --local-dir ~/Documents/git/llama3  
