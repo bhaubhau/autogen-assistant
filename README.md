@@ -59,6 +59,9 @@ https://github.com/ollama/ollama/issues/703
 
 https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network  
 
+netsh advfirewall firewall add rule name="Allowing LAN connections" dir=in action=allow protocol=TCP localport=9008  
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=9008 connectaddress=localhost connectport=9007
+
 huggingface-cli login  
 huggingface-cli whoami  
 huggingface-cli download meta-llama/Meta-Llama-3.1-8B --local-dir ~/Documents/git/llama3  
@@ -106,7 +109,11 @@ https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/discussions/7
 https://python.langchain.com/v0.2/docs/integrations/chat/ollama/  
 https://medium.com/@developer.yasir.pk/tool-calling-for-llms-a-detailed-tutorial-a2b4d78633e2  
 
-https://medium.com/@tubelwj/introduction-to-ai-model-quantization-formats-dc643bfc335c
+https://medium.com/@tubelwj/introduction-to-ai-model-quantization-formats-dc643bfc335c  
+
+https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3/  
+
+https://llama.meta.com/docs/llama-everywhere/running-meta-llama-on-linux/  
 
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
