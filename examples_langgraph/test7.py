@@ -60,12 +60,12 @@ tool_node = ToolNode(tools)
 # model = ChatOpenAI(model="NULL", api_key="NULL", base_url="http://localhost:4000").bind_tools(tools)
 # model = ChatOllama(model="llama3.1",temperature=0).bind_tools(tools)
 # model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0).bind_tools(tools)
-model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0,base_url="http://localhost:9007").bind_tools(tools) #windows locally with wsl
+# model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0,base_url="http://localhost:9007").bind_tools(tools) #windows locally with wsl
 # model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0,base_url="http://192.168.0.151:11434").bind_tools(tools) #hosted on mac
-# model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0,base_url="http://192.168.0.132:9008").bind_tools(tools) #hosted on windows
+model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M",temperature=0,base_url="http://192.168.0.132:9008").bind_tools(tools) #hosted on windows
 # model = ChatOllama(model="mistral-nemo",temperature=0).bind_tools(tools)
 # model = ChatOllama(model="mistral-nemo:12b-instruct-2407-q4_K_M",temperature=0).bind_tools(tools)
-model = ChatOllama(model="mistral-nemo:12b-instruct-2407-q4_K_M",temperature=0,base_url="http://192.168.0.143:9009").bind_tools(tools) #hosted on ubuntu
+# model = ChatOllama(model="mistral-nemo:12b-instruct-2407-q4_K_M",temperature=0,base_url="http://192.168.0.143:9009").bind_tools(tools) #hosted on ubuntu
 # model = ChatOllama(model="phi3:3.8b-mini-128k-instruct-fp16",temperature=0).bind_tools(tools)
 # model = ChatOllama(model="tinyllama:1.1b-chat-v0.6-fp16",temperature=0).bind_tools(tools)
 # model = ChatOllama(model="gemma2:2b",temperature=0).bind_tools(tools)
