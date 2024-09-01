@@ -119,6 +119,8 @@ https://llama.meta.com/docs/llama-everywhere/running-meta-llama-on-linux/
 
 https://medium.com/@shivansh.kaushik/implementing-large-multimodal-models-lmm-in-few-lines-of-code-using-langchain-and-ollama-6c08b1c25fdd  
 
+https://github.com/ollama/ollama/issues/914
+
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
 ollama run mistral:7b-instruct-v0.3-fp16  
