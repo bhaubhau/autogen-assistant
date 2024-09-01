@@ -61,8 +61,14 @@ https://github.com/ollama/ollama/issues/703
 
 https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network  
 
-netsh advfirewall firewall add rule name="Allowing LAN connections" dir=in action=allow protocol=TCP localport=9008  
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=9008 connectaddress=localhost connectport=9007
+sudo nano /etc/systemd/system/ollama.service  
+[Service]  
+Environment="OLLAMA_HOST=0.0.0.0"
+sudo systemctl daemon-reload
+sudo systemctl restart ollama
+netsh advfirewall firewall add rule name="Allowing LAN connections" dir=in action=allow protocol=TCP localport=11434  
+#netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=9008 connectaddress=localhost connectport=9007
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=9008 connectaddress=172.25.58.118 connectport=11434
 
 huggingface-cli login  
 huggingface-cli whoami  
