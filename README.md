@@ -9,9 +9,11 @@ pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worke
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
-pip install -U langchain langchain-openai langgraph langsmith langchain-community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama
+pip install -U langchain langchain-openai langgraph langsmith langchain-community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama grandalf
 
 litellm --model ollama/tinyllama  
+
+top -i  
 
 export AUTOGEN_USE_DOCKER=False  
 autogenstudio ui  
@@ -114,6 +116,8 @@ https://medium.com/@tubelwj/introduction-to-ai-model-quantization-formats-dc643b
 https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3/  
 
 https://llama.meta.com/docs/llama-everywhere/running-meta-llama-on-linux/  
+
+https://medium.com/@shivansh.kaushik/implementing-large-multimodal-models-lmm-in-few-lines-of-code-using-langchain-and-ollama-6c08b1c25fdd  
 
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
