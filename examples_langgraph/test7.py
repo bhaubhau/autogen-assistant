@@ -6,7 +6,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 # from langchain_openai import ChatOpenAI
 # from langchain_anthropic import ChatAnthropic
 # from langchain_mistralai import ChatMistralAI
-# from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
+from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 # from langchain_community.llms import Ollama
 from langchain_ollama import ChatOllama
 from langchain_core.tools import tool
@@ -45,10 +45,10 @@ tool_node = ToolNode(tools)
 # llm = HuggingFaceEndpoint(repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="google/gemma-2b-it", temperature=0)
 # model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(tools)
-# llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
+llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-Nemo-Instruct-2407", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="mistralai/Mistral-7B-Instruct-v0.3", temperature=0)
 # llm = HuggingFaceEndpoint(repo_id="microsoft/Phi-3-mini-4k-instruct", temperature=0)
-# model = ChatHuggingFace(llm=llm, ).bind_tools(tools)
+model = ChatHuggingFace(llm=llm).bind_tools(tools)
 # model = ChatHuggingFace(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions").bind_tools(tools)
 # model = ChatMistralAI(base_url="https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407/v1/chat/completions", model="Mistral-Nemo-Instruct-2407", api_key="NULL").bind_tools(tools)
 # model = ChatMistralAI(model="open-mistral-nemo-2407", api_key=os.environ['MISTRAL_API_KEY']).bind_tools(tools)

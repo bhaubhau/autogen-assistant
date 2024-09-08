@@ -11,8 +11,8 @@ class State(TypedDict):
     messages: Annotated[list, add_messages]
 
 # model1 = ChatOllama(model="llama3.1", temperature=0,base_url="http://192.168.0.143:11434") #linux
-model1 = ChatOllama(model="llama3.1", temperature=0,base_url="http://192.168.0.132:9008") #win
-# model1 = ChatOllama(model="tinyllama", temperature=0)
+# model1 = ChatOllama(model="llama3.1", temperature=0,base_url="http://192.168.0.132:9008") #win
+model1 = ChatOllama(model="tinyllama", temperature=0)
 model2 = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M", temperature=0)
 
 def bot1(state: State):
