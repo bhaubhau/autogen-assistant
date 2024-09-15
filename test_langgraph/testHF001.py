@@ -28,16 +28,33 @@ hf = HuggingFacePipeline.from_model_id(
     # device_map="auto",
     # model_kwargs={"temperature": 0.0, "local_files_only": True},
 )
-model = ChatHuggingFace(llm=hf)
-# model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M")
+# hf.bind(skip_prompt=True)
+# model = ChatHuggingFace(llm=hf)
+# # model = ChatOllama(model="mistral:7b-instruct-v0.3-q4_K_M")
+#
+#
+# messages = [
+#     SystemMessage(content="As an AI assistant respond to user query"),
+#     HumanMessage(content="what is the capital of india?"),
+# ]
+#
+# parser = StrOutputParser()
+# result = model.invoke(messages)
+# #result = hf.invoke(messages)
+# print(parser.invoke(result))
 
+from langchain_core.prompts import PromptTemplate
 
-messages = [
-    SystemMessage(content="As an AI assistant respond to user query"),
-    HumanMessage(content="what is the capital of india?"),
-]
+template = """Question: {question}
 
-parser = StrOutputParser()
-result = model.invoke(messages)
-#result = hf.invoke(messages)
-print(parser.invoke(result))
+Answer: Let's think step by step."""
+prompt = PromptTemplate.from_template(template)
+
+# chain = prompt | hf
+chain = prompt | hf.bind(skip_prompt=True)
+
+question = "What is electroencephalography?"
+
+# print(chain.invoke({"question": question}))
+for chunk in chain.stream(question):
+    print(chunk, end="", flush=True)
