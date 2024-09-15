@@ -9,6 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 model_id = "../downloaded_models/TinyLlama-1.1B-Chat-v1.0"
 # model_id = "../downloaded_models/Mistral-7B-Instruct-v0.3"
+# model_id = "../downloaded_models/Mistral-Nemo-Instruct-2407"
 # tokenizer = AutoTokenizer.from_pretrained(model_id)
 # model = AutoModelForCausalLM.from_pretrained(model_id)
 # pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=100, device="mps")
@@ -23,7 +24,8 @@ model_id = "../downloaded_models/TinyLlama-1.1B-Chat-v1.0"
 hf = HuggingFacePipeline.from_model_id(
     model_id=model_id,
     task="text-generation",
-    # device_map="mps",
+    # device=0,
+    # device_map="auto",
     # model_kwargs={"temperature": 0.0, "local_files_only": True},
 )
 model = ChatHuggingFace(llm=hf)
