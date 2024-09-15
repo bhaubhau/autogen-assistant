@@ -127,6 +127,8 @@ https://medium.com/@shivansh.kaushik/implementing-large-multimodal-models-lmm-in
 
 https://github.com/ollama/ollama/issues/914
 
+https://github.com/langchain-ai/langchain/issues/22804
+
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
 ollama run mistral:7b-instruct-v0.3-fp16  
