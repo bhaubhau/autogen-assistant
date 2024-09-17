@@ -63,13 +63,15 @@ prompt = ChatPromptTemplate.from_messages([SystemMessage(content="you are a help
 
 # chain = prompt | hf
 # chain = prompt | hf.bind(skip_prompt=True)
-chain = prompt | model
+# chain = prompt | model
 
 # question = "What is electroencephalography?"
-messages=[HumanMessage(content="What city is the capital of india?")]
+messages=[HumanMessage(content="tell me a joke?")]
 # chain = prompt | messages | hf.bind(skip_prompt=True)
 
 # print(chain.invoke({"question": question}))
 # for chunk in chain.stream(question):
-for chunk in chain.stream(messages):
-    print(chunk, end="", flush=True)
+# for chunk in chain.stream(messages):
+#     print(chunk, end="", flush=True)
+
+print(model.invoke(messages))

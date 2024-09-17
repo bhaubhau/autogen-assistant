@@ -131,6 +131,8 @@ https://github.com/langchain-ai/langchain/issues/22804
 
 https://huggingface.co/docs/transformers/main/en//quantization
 
+https://medium.com/@ypredofficial/prompttemplate-and-chatprompttemplate-explained-87291576c6de
+
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
 ollama run mistral:7b-instruct-v0.3-fp16  
