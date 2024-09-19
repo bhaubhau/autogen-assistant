@@ -135,6 +135,8 @@ https://medium.com/@ypredofficial/prompttemplate-and-chatprompttemplate-explaine
 
 https://python.langchain.com/docs/how_to/tools_prompting/
 
+https://python.langchain.com/v0.2/docs/how_to/binding/
+
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
 ollama run mistral:7b-instruct-v0.3-fp16  
