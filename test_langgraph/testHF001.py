@@ -74,4 +74,4 @@ messages=[HumanMessage(content="tell me a joke?")]
 # for chunk in chain.stream(messages):
 #     print(chunk, end="", flush=True)
 
-print(model.invoke(messages))
+print(model.invoke(messages,stop=["<|assistant|>"]))
