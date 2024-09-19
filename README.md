@@ -133,6 +133,8 @@ https://huggingface.co/docs/transformers/main/en//quantization
 
 https://medium.com/@ypredofficial/prompttemplate-and-chatprompttemplate-explained-87291576c6de
 
+https://python.langchain.com/docs/how_to/tools_prompting/
+
 ollama run mistral:7b-instruct-v0.3-q4_K_M  
 ollama pull mistral-nemo  
 ollama run mistral:7b-instruct-v0.3-fp16  
