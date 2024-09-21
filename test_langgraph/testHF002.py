@@ -7,14 +7,14 @@ from langgraph.graph.message import add_messages
 
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from langchain_huggingface import ChatHuggingFace,HuggingFacePipeline
-model_id = "../downloaded_models/TinyLlama-1.1B-Chat-v1.0"
-# model_id = "../downloaded_models/gemma-2b-it"
+# model_id = "../downloaded_models/TinyLlama-1.1B-Chat-v1.0"
+model_id = "../downloaded_models/gemma-2b-it"
 # model_id = "../downloaded_models/Mistral-7B-Instruct-v0.3"
 hf = HuggingFacePipeline.from_model_id(
     model_id=model_id,
     task="text-generation",
-    # pipeline_kwargs=dict(
-    #     max_new_tokens=1024)
+    pipeline_kwargs=dict(
+        max_new_tokens=1024)
 )
 
 llm = ChatHuggingFace(llm=hf)
@@ -39,7 +39,7 @@ class State(TypedDict):
 graph_builder = StateGraph(State)
 
 def chatbot(state: State):
-    return {"messages": [llm.invoke(input = state["messages"], stop=["<|user|>","</s>"])]}
+    return {"messages": [llm.invoke(input = state["messages"])]}
 
 graph_builder.add_node("chatbot", chatbot)
 graph_builder.add_edge(START, "chatbot")
