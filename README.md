@@ -153,3 +153,8 @@ litellm --model huggingface/mistralai/Mistral-7B-Instruct-v0.3
 litellm --model huggingface/mistralai/Mistral-Nemo-Instruct-2407  
 
 https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=1
+
+
+brew install pyenv
+
+pyenv install 3.10.12
