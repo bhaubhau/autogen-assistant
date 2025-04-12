@@ -167,3 +167,4 @@ https://medium.com/accredian/fine-tuning-made-easy-your-guide-to-llama-factory-e
 https://colab.research.google.com/github/Vahe1994/AQLM/blob/main/notebooks/aqlm_2bit_training.ipynb  
 https://www.youtube.com/@AIBites/videos?view=0&sort=dd&shelf_id=4  
 https://medium.com/data-science/local-llm-fine-tuning-on-mac-m1-16gb-f59f4f598be7  
+https://www.amd.com/content/dam/amd/en/documents/radeon-tech-docs/software-optimization-guide/fine-tuning-llama-3-on-AMD-radeon-gpus.pdf  
