@@ -3,7 +3,7 @@ python3 -m venv ./myenv
 python3.12 -m venv ./myenv  
 source ./myenv/bin/activate  
 myenv\Scripts\activate  
-pip install pyautogen litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'  
+pip install ag2 litellm autogenstudio 'litellm[proxy]' 'fschat[model_worker,webui]'  
 pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
