@@ -10,6 +10,10 @@ pip install -U "huggingface_hub[cli]"
 pip install --upgrade pip
 pip install playwright
 pip install -U langchain langchain-openai langgraph langsmith langchain-community tavily-python langchain-anthropic langchain-huggingface langchain-mistralai langchain-ollama grandalf
+pip install mlx mlx_lm
+pip install jupyterlab
+pip install -U bitsandbytes accelerate transformers torch peft trl datasets
+
 
 litellm --model ollama/tinyllama  
 
@@ -168,3 +172,13 @@ https://colab.research.google.com/github/Vahe1994/AQLM/blob/main/notebooks/aqlm_
 https://www.youtube.com/@AIBites/videos?view=0&sort=dd&shelf_id=4  
 https://medium.com/data-science/local-llm-fine-tuning-on-mac-m1-16gb-f59f4f598be7  
 https://www.amd.com/content/dam/amd/en/documents/radeon-tech-docs/software-optimization-guide/fine-tuning-llama-3-on-AMD-radeon-gpus.pdf  
+
+hf download openai/gpt-oss-20b --local-dir ./downloaded_models/gpt-oss-20b  
+hf download stabilityai/sdxl-turbo --local-dir ./downloaded_models/sdxl-turbo  
+
+https://docs.pytorch.org/docs/stable/notes/hip.html  
+
+python gpt_oss/metal/examples/generate.py $HOME/Documents/git/autogen-assistant/downloaded_models/gpt-oss-20b/metal/model.bin -p "why did the chicken cross the road?"
+
+python gpt_oss/metal/scripts/create-local-model.py -s $HOME/Documents/git/autogen-assistant/downloaded_models/gpt-oss-20b -d model_2.bin
+https://stackoverflow.com/questions/17980759/xcode-select-active-developer-directory-error
